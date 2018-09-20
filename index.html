@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Tree Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+<body>
+    <div id="title"></div>
+    <div id="description"></div>
+    <div class="visHolder">
+      <svg class="mainSvg"></svg>
+      <svg id="legend" width='800' height = '120'></svg>
+      <select >
+        <option value="kickStarter">Kickstarter Pledges</option>
+        <option value="movieSales">Movie Sales</option>
+        <option value="videoGames">Video Game Sales</option>
+      </select>
+    </div>
+  <script src="//d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
