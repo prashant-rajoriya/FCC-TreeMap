@@ -128,26 +128,19 @@ d3.queue()
       let categories = root.leaves().map(nodes => nodes.data.category);
       categories = categories.filter((elem , i, arr) => arr.indexOf(elem) === i);
       
-      let updateLegend = legend
+      legend.selectAll('*').remove();
+
+      let legendElem = legend
                 .append("g")
                 .attr("transform", "translate(60," + LEGEND_OFFSET + ")")
                 .selectAll("g")
-                .data(categories);
-
-      console.log(updateLegend);  
-
-      updateLegend
-        .exit()
-        .remove();
-
-      let legendElem = updateLegend  
-                        .enter().append("g")
-                        .attr("transform", function(d, i) { 
-                          return 'translate(' + 
-                          ((i%legendElemsPerRow)*LEGEND_H_SPACING) + ',' + 
-                          ((Math.floor(i/legendElemsPerRow))*LEGEND_RECT_SIZE + (LEGEND_V_SPACING*(Math.floor(i/legendElemsPerRow)))) + ')';
-                        })
-                        .merge(updateLegend);
+                .data(categories)
+                .enter().append("g")
+                .attr("transform", function(d, i) { 
+                  return 'translate(' + 
+                  ((i%legendElemsPerRow)*LEGEND_H_SPACING) + ',' + 
+                  ((Math.floor(i/legendElemsPerRow))*LEGEND_RECT_SIZE + (LEGEND_V_SPACING*(Math.floor(i/legendElemsPerRow)))) + ')';
+                })
           
       legendElem.append("rect")                              
           .attr('width', LEGEND_RECT_SIZE)                          
